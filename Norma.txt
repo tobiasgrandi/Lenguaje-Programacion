@@ -1,0 +1,44 @@
+program Norma;
+
+dec 
+	norma: real;
+	a: array: [100];
+	b: array: [100];
+	i: real;
+	aux1: real;
+	aux2: real;
+    tamano: real;
+end;
+start
+    i:=0;
+    aux1:=0;
+    aux2:=0;
+    norma:=0;
+
+    input("Ingrese el tamano de los vectores: ", tamano);
+
+    while i != tamano:
+        print("Ingrese el valor ", i, " para el primer vector");
+        input("Valor: ", aux1);
+
+        a[i] := aux1;
+
+        print("Ingrese el valor ", i, " para el segundo vector");
+        input("Valor: ", aux1);
+
+        b[i] := aux1;
+
+        i := i + 1;
+    end;
+
+    i := 0;
+    while i != tamano :
+        aux1:=a[i];
+        aux2:=b[i];
+        norma:= norma + pot(aux1 - aux2, 2);
+        i := i + 1;
+    end;
+    norma:=raiz(norma , 2);
+    print("La norma euclidiana entre ambos vectores es: ", norma);
+
+end;
